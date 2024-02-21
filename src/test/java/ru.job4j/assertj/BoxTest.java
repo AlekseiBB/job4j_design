@@ -1,50 +1,47 @@
 package ru.job4j.assertj;
 
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BoxTest {
         @Test
         void isThisSphere() {
             Box box = new Box(0, 10);
-            String name = box.whatsThis();
-            assertThat(name).isEqualTo("Sphere");
+            assertThat(box.whatsThis()).isEqualTo("Sphere");
         }
     @Test
     public void testWhatsThis() {
         Box box = new Box(4, 3);
-        assertEquals("Tetrahedron", box.whatsThis());
+        assertThat(box.whatsThis()).isEqualTo("Tetrahedron");
 
         Box box2 = new Box(10, 3);
-        assertEquals("Unknown object", box2.whatsThis());
+        assertThat(box2.whatsThis()).isEqualTo("Unknown object");
     }
 
     @Test
     public void testGetNumberOfVertices() {
         Box box = new Box(4, 3);
-        assertEquals(4, box.getNumberOfVertices());
+        assertThat(box.getNumberOfVertices()).isEqualTo(4);
 
         Box box2 = new Box(10, 3);
-        assertEquals(-1, box2.getNumberOfVertices());
+        assertThat(box2.getNumberOfVertices()).isEqualTo(-1);
     }
 
     @Test
     public void testIsExist() {
         Box box = new Box(4, 3);
-        assertTrue(box.isExist());
+        assertThat(box.isExist()).isTrue();
 
         Box box2 = new Box(-1, 3);
-        assertFalse(box2.isExist());
+        assertThat(box2.isExist()).isFalse();
     }
 
     @Test
     public void testGetArea() {
         Box box = new Box(4, 3);
-        assertEquals(15.588457268119894, box.getArea());
+        assertThat(box.getArea()).isCloseTo(15.588457268119894, within(0.001));
 
         Box box2 = new Box(8, 0);
-        assertEquals(0, box2.getArea());
+        assertThat(box2.getArea()).isEqualTo(0);
     }
 }
