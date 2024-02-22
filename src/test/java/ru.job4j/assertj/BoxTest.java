@@ -39,7 +39,7 @@ class BoxTest {
     @Test
     public void testGetArea() {
         Box box = new Box(4, 3);
-        assertThat(box.getArea()).isCloseTo(15.588457268119894, within(0.001));
+        assertThat(box.getArea()).isCloseTo(15.588, withPrecision(0.001d));
 
         Box box2 = new Box(8, 0);
         assertThat(box2.getArea()).isEqualTo(0);
