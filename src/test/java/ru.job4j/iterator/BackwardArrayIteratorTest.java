@@ -3,6 +3,7 @@ package ru.job4j.iterator;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
+
 import java.util.NoSuchElementException;
 
 class BackwardArrayIteratorTest {
