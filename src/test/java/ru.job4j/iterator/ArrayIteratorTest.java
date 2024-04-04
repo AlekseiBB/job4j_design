@@ -1,31 +1,28 @@
 package ru.job4j.iterator;
 
-// автоимпорт если создавать тестовый класс alt+enter
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
 
-// копировал из класса урока
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.Matchers.is;
-import org.junit.Test;
+public class ArrayIteratorTest {
 
-class ArrayIteratorTest {
     @Test
-    public void whenMultiCallhasNextThenTrue() {
+    void whenMultiCallHasNextThenTrue() {
         ArrayIterator iterator = new ArrayIterator(
-                new int[] {1, 2, 3}
+                new int[]{1, 2, 3}
         );
-        assertThat(iterator.hasNext(), is(true));
-        assertThat(iterator.hasNext(), is(true));
+        assertTrue(iterator.hasNext());
+        assertTrue(iterator.hasNext());
     }
 
     @Test
-    public void whenReadSequence() {
+    void whenReadSequence() {
         ArrayIterator iterator = new ArrayIterator(
-                new int[] {1, 2, 3}
+                new int[]{1, 2, 3}
         );
-        assertThat(iterator.next(), is(1));
-        assertThat(iterator.next(), is(2));
-        assertThat(iterator.next(), is(3));
+        assertThat(iterator.next()).isEqualTo(1);
+        assertThat(iterator.next()).isEqualTo(2);
+        assertThat(iterator.next()).isEqualTo(3);
     }
 }
